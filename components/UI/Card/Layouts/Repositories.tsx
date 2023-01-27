@@ -7,6 +7,7 @@ import { Repository } from "../../../../services/types/types";
 type Props = {
   item: Repository;
 };
+
 const Repositories = ({ item }: Props) => {
   console.log(item);
   return (
@@ -15,6 +16,7 @@ const Repositories = ({ item }: Props) => {
       <Typography variant="h6">{item.description}</Typography>
       <Typography variant="h6">{item.updatedAt}</Typography>
       <Typography variant="h6">{item.stargazerCount}</Typography>
+      <Typography variant="h6">{item.primaryLanguage.name}</Typography>
     </Box>
   );
 };
