@@ -4,9 +4,11 @@ import styles from '../styles/Home.module.css'
 import { Box, ButtonGroup, Button } from "@mui/material";
 import { gql, useQuery } from "@apollo/client";
 import client from "../services/apollo-client";
-import { GET_REPOSITORIES } from "../services/graphql/queries";
+import { GET_REPOSITORIES, GET_USERS } from "../services/graphql/queries";
 import theme from "../services/theme";
 import { useState } from "react";
+import DisplayData from "../components/DisplayData/DisplayData";
+import Menu from "../components/Menu/Menu";
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -25,13 +27,19 @@ export async function getStaticProps() {
 export default function Home() {
   const [type, setType] = useState("repositories");
 
-  const { data } = useQuery(GET_REPOSITORIES, {
+  // const { data } = useQuery(GET_REPOSITORIES, {
+  //   variables: {
+  //     query: "",
+  //   },
+  // });
+
+  const { data } = useQuery(GET_USERS, {
     variables: {
-      query: "releasy",
+      query: "hello",
     },
   });
-
   console.log(data);
+  // console.log(data);
   return (
     <div className={styles.container}>
       <Head>
@@ -41,58 +49,14 @@ export default function Home() {
       </Head>
       <Box
         sx={{
-          width: "100%",
+          width: "100vw",
           height: "100vh",
           display: "flex",
           backgroundColor: theme.palette.primary.dark,
         }}
       >
-        <Box
-          sx={{
-            width: "70%",
-            height: "90%",
-            backgroundColor: theme.palette.grey.grey90,
-            borderRadius: "10px",
-            margin: "auto",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              "& > *": {
-                m: 1,
-              },
-            }}
-          >
-            <ButtonGroup
-              sx={{
-                padding: 5,
-                width: "25%",
-                textAlign: "start",
-                color: "white",
-              }}
-              orientation="vertical"
-              aria-label="vertical outlined button group"
-            >
-              <Button
-                onClick={() => {
-                  setType("REPOSITORIES");
-                }}
-                key="one"
-              >
-                Repositories
-              </Button>
-              <Button key="two">Code</Button>
-              <Button key="three">Commits</Button>
-              <Button key="one">Issues</Button>
-              <Button key="two">Discussion</Button>
-              <Button key="three">Packages</Button>
-              <Button key="one">MarketPlace</Button>
-              <Button key="two">Wikis</Button>
-              <Button key="three">Users</Button>
-            </ButtonGroup>
-          </Box>
-        </Box>
+        <Menu />
+        <DisplayData />
       </Box>
     </div>
   );
