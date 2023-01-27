@@ -4,8 +4,9 @@ import Link from "next/link";
 import Users from "./Layouts/Users";
 import Repositories from "./Layouts/Repositories";
 import TypographyLink from "./Typography/TypographyLink";
+import { Repository, Selection } from "../../../services/types/types";
 type Props = {
-  item: any;
+  item: Repository;
   type: string;
 };
 

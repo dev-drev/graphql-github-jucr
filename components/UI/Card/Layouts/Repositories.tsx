@@ -2,17 +2,11 @@ import React from "react";
 import { Typography, Box } from "@mui/material";
 import Link from "next/link";
 import TypographyLink from "../Typography/TypographyLink";
+import { Repository } from "../../../../services/types/types";
 
 type Props = {
-  item: {
-    id: string;
-    name: string;
-    description: string;
-    updatedAt: string;
-    stargazerCount: number;
-  };
+  item: Repository;
 };
-
 const Repositories = ({ item }: Props) => {
   console.log(item);
   return (

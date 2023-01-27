@@ -1,4 +1,5 @@
 export type Repository = {
+  id: string;
   forkCount: number;
   stargazerCount: number;
   nameWithOwner: string;
@@ -20,6 +21,4 @@ export type User = {
   id: string;
 };
 
-export type RepositoryNode = {
-  node: Repository;
-};
+export type Selection = Repository | User;
