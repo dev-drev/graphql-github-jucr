@@ -7,9 +7,15 @@ import client from "../apollo-client";
 export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
-      {
-        viewer {
-          login
+      query {
+        search(first: 10, type: REPOSITORY, query: "releasy") {
+          nodes {
+            ... on Repository {
+              nameWithOwner
+              description
+              url
+            }
+          }
         }
       }
     `,
