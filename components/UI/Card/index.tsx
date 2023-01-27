@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import Link from "next/link";
 import Users from "./Layouts/Users";
 import Repositories from "./Layouts/Repositories";
+import TypographyLink from "./Typography/TypographyLink";
 type Props = {
   item: any;
   type: string;
@@ -20,19 +21,8 @@ const Card = ({ item, type }: Props) => {
           color: "white",
         }}
       >
-        <Box
-          sx={{
-            width: "100%",
-            padding: 2,
-            textAlign: "start",
-            color: "white",
-          }}
-        >
-          {item.nameWithOwner}
-        </Box>
-        <Link href={`/display/${item.nameWithOwner}`}>Go</Link>
+        <Repositories item={item} />
       </Box>
-      <Repositories item={item} />
     </div>
   );
 };
