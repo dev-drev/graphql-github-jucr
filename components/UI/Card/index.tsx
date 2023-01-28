@@ -1,31 +1,25 @@
 import React from "react";
 import { Box } from "@mui/material";
-import Link from "next/link";
-import Users from "./Layouts/Users";
 import Repositories from "./Layouts/Repositories";
-import TypographyLink from "./Typography/TypographyLink";
-import { Repository, Selection } from "../../../services/types/types";
+import { QueryType, Repository } from "../../../services/graphql/types";
 type Props = {
   item: Repository;
-  type: string;
+  section: QueryType;
 };
 
-const Card = ({ item, type }: Props) => {
-  return (
-    <div>
-      <Box
-        sx={{
-          width: "100%",
-          border: "1px solid green",
-          padding: 2,
-          textAlign: "start",
-          color: "white",
-        }}
-      >
-        <Repositories item={item} />
-      </Box>
-    </div>
-  );
-};
+const Card = ({ item }: Props) => (
+  <Box
+    sx={{
+      width: "100%",
+      border: "1px solid green",
+      padding: 2,
+      textAlign: "start",
+      color: "white",
+    }}
+  >
+    <Repositories item={item} />
+  </Box>
+);
+
 
 export default Card;

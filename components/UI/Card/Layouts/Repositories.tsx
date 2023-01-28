@@ -1,15 +1,13 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
-import Link from "next/link";
 import TypographyLink from "../Typography/TypographyLink";
-import { Repository } from "../../../../services/types/types";
+import { Repository } from "../../../../services/graphql/types";
 
 type Props = {
   item: Repository;
 };
 
 const Repositories = ({ item }: Props) => {
-  console.log(item);
   if (!item) return null;
   return (
     <Box>

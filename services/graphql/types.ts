@@ -1,3 +1,11 @@
+import { DocumentNode } from "graphql";
+import { GET_REPOSITORIES, GET_USERS } from "./queries";
+
+export type QueryType = {
+  name: string;
+  type: DocumentNode;
+};
+
 export type Repository = {
   id: string;
   forkCount: number;
@@ -20,4 +28,3 @@ export type User = {
   login: string;
   id: string;
 };
-

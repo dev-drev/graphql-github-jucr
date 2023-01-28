@@ -1,33 +1,16 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import { Box, Button, FormControl, Input, TextField } from "@mui/material";
-import { useLazyQuery, useQuery } from "@apollo/client";
-import client from "../services/apollo-client";
-import { GET_REPOSITORIES, GET_USERS } from "../services/graphql/queries";
+
+import { Box, FormControl, TextField } from "@mui/material";
+import { GET_REPOSITORIES } from "../services/graphql/queries";
 import theme from "../services/theme";
 import { useState } from "react";
 import DisplayData from "../components/DisplayData/DisplayData";
 import Menu from "../components/Menu/Menu";
-export async function getStaticProps() {
-  const { data } = await client.query({
-    query: GET_REPOSITORIES,
-    variables: {
-      query: "releasy",
-    },
-  });
 
-  return {
-    props: {
-      data,
-    },
-  };
-}
 export default function Home() {
-  const [type, setType] = useState(GET_REPOSITORIES);
+  const [section, setSection] = useState(GET_REPOSITORIES);
   const [query, setQuery] = useState("");
 
-  console.log(type);
   return (
     <div>
       <Head>
@@ -37,12 +20,13 @@ export default function Home() {
       </Head>
       <Box
         sx={{
+          height: "100%",
           height: "100vh",
           display: "flex",
           backgroundColor: theme.palette.primary.dark,
         }}
       >
-        <Menu type={type} setType={setType} />
+        <Menu section={section} setSection={setSection} />
         <Box sx={{ width: "70%" }}>
           <FormControl
             sx={{
@@ -65,7 +49,7 @@ export default function Home() {
               onChange={(e) => setQuery(e.target.value)}
             />
           </FormControl>
-          <DisplayData query={query} type={type} />
+          <DisplayData query={query} section={section} />
         </Box>
       </Box>
     </div>

@@ -1,31 +1,29 @@
 import React from "react";
 
-import { Box, ButtonGroup, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import { useQuery } from "@apollo/client";
-import theme from "../../services/theme";
-import { GET_REPOSITORIES, GET_USERS } from "../../services/graphql/queries";
-import Link from "next/link";
 import Card from "../UI/Card";
+import { GraphQLObjectType } from "graphql";
 
-export default function DisplayData({ query, type }) {
-
-  const { data } = useQuery(type, {
+export default function DisplayData({ query, section }) {
+  const { data } = useQuery(section, {
     variables: {
       query: query,
     },
   });
 
+  console.log(data);
+
   return (
     <Box
       sx={{
         width: "100%",
-        height: "90%",
+        height: "100%",
         overflow: "scroll",
-        border: "1px solid red",
       }}
     >
       {data?.search?.nodes?.map((item) => {
-        return <Card type={type} item={item} />;
+        return <Card section={section} key={item.id} item={item} />;
       })}
     </Box>
   );

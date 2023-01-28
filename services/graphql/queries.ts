@@ -1,8 +1,14 @@
 import { gql } from "@apollo/client";
+import { GraphQLObjectType } from "graphql";
+import { QueryType } from "./types";
 
 export const GET_REPOSITORIES = gql`
-  query SearchInApp($query: String!) {
-    search(query: $query, type: REPOSITORY, first: 10) {
+  query SearchInApp($query: String!, $after: String) {
+    search(query: $query, type: REPOSITORY, first: 10, after: $after) {
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
       nodes {
         ... on Repository {
           forkCount
@@ -34,23 +40,42 @@ export const GET_USERS = gql`
       nodes {
         ... on User {
           login
+          url
           id
+          name
+          location
+          email
+          bio
         }
       }
     }
   }
 `;
 
-export const GET_REPOSITORY = gql`
-  query GetRepository($id: ID!) {
-    node(id: $id) {
-      ... on Repository {
-        name
-        nameWithOwner
-        description
-        url
-        id
+export const GET_CODES = gql`
+  query SearchInApp {
+    search(first: 10, type: CODE, query: "hello") {
+      nodes {
+        ... on Code {
+          name
+          url
+          id
+          description
+          repository {
+            name
+            nameWithOwner
+            owner {
+              login
+            }
+          }
+        }
       }
     }
   }
 `;
+
+export const sectionsList: QueryType[] = [
+  { name: "Repositories", type: GET_REPOSITORIES },
+  { name: "Users", type: GET_USERS },
+  { name: "Codes", type: GET_CODES },
+];

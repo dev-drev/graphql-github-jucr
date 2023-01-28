@@ -1,13 +1,9 @@
 import React from "react";
-import Head from "next/head";
-import Image from "next/image";
-import { Box, ButtonGroup, Button } from "@mui/material";
-import { useQuery } from "@apollo/client";
-import theme from "../../services/theme";
-import { GET_REPOSITORIES, GET_USERS } from "../../services/graphql/queries";
+import { ButtonGroup } from "@mui/material";
+import { sectionsList } from "../../services/graphql/queries";
 import AppButton from "../UI/AppButton/AppButton";
 
-export default function Menu({ setType }) {
+export default function Menu({ setSection }) {
   return (
     <ButtonGroup
       sx={{
@@ -20,15 +16,9 @@ export default function Menu({ setType }) {
       orientation="vertical"
       aria-label="vertical outlined button group"
     >
-      <Button onClick={() => setType(GET_REPOSITORIES)}>Repositories</Button>
-      <Button>Code</Button>
-      <Button>Commits</Button>
-      <Button>Issues</Button>
-      <Button>Discussion</Button>
-      <Button>Packages</Button>
-      <Button>MarketPlace</Button>
-      <Button>Wikis</Button>
-      <Button onClick={() => setType(GET_USERS)}>Users</Button>
+      {sectionsList.map((section, index) => (
+        <AppButton setSection={setSection} section={section} key={index} />
+      ))}
     </ButtonGroup>
   );
 }
