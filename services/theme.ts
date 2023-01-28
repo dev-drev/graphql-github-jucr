@@ -12,8 +12,8 @@ const theme = createTheme({
 
     // primary colors include the following:
     primary: {
-      main: "#282D34",
-      light: "#5195eb",
+      main: "#333A42",
+      light: "#5195EF",
       contrastText: "#080808",
     },
 

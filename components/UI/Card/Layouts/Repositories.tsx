@@ -22,7 +22,6 @@ const Repositories = ({ item }: Props) => {
             {item.primaryLanguage?.name}
           </Typography>
         )}
-        <Typography variant="caption">Updated on {date}</Typography>
         <Typography variant="caption">{item.stargazerCount}</Typography>
       </Box>
     </Box>

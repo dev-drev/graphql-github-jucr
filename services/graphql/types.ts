@@ -1,5 +1,4 @@
-import { DocumentNode } from "graphql";
-import { GET_REPOSITORIES, GET_USERS } from "./queries";
+import { DocumentNode, GraphQLObjectType } from "graphql";
 
 export type QueryType = {
   name: string;
@@ -8,7 +7,6 @@ export type QueryType = {
 
 export type Repository = {
   id: string;
-  forkCount: number;
   stargazerCount: number;
   nameWithOwner: string;
   updatedAt: string;
@@ -26,5 +24,29 @@ export type Repository = {
 
 export type User = {
   login: string;
+  url: string;
+  location: string;
+  email: string;
+  bio: string;
   id: string;
+};
+
+export type Topic = {
+  name: string;
+  relatedTopics: {
+    name: string;
+    stargazerCount: number;
+  }[];
+};
+
+export type Issue = {
+  title: string;
+  repository: {
+    name: string;
+  };
+  author: {
+    login: string;
+  };
+  updatedAt: string;
+  body: string;
 };

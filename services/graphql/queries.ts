@@ -1,16 +1,12 @@
 import { gql } from "@apollo/client";
-import { GraphQLObjectType } from "graphql";
 import { QueryType } from "./types";
 
 export const GET_REPOSITORIES = gql`
   query SearchInApp($query: String!, $after: String) {
     search(query: $query, type: REPOSITORY, first: 100, after: $after) {
-      pageInfo {
-        endCursor
-        hasNextPage
-      }
       nodes {
         ... on Repository {
+          __typename
           stargazerCount
           nameWithOwner
           updatedAt
@@ -22,10 +18,6 @@ export const GET_REPOSITORIES = gql`
           owner {
             id
             login
-            ... on User {
-              id
-              email
-            }
           }
         }
       }
@@ -38,6 +30,7 @@ export const GET_USERS = gql`
     search(first: 10, type: USER, query: $query) {
       nodes {
         ... on User {
+          __typename
           login
           url
           id
@@ -51,30 +44,44 @@ export const GET_USERS = gql`
   }
 `;
 
-export const GET_CODES = gql`
-  query SearchInApp {
-    search(first: 10, type: CODE, query: "hello") {
+export const GET_TOPIC = gql`
+  query SearchInApp($query: String!) {
+    topic(name: $query) {
+      __typename
+      name
+      relatedTopics(first: 10) {
+        name
+        stargazerCount
+      }
+    }
+  }
+`;
+
+export const GET_ISSUES = gql`
+  query SearchInApp($query: String!) {
+    search(query: $query, type: ISSUE, first: 100) {
       nodes {
-        ... on Code {
-          name
-          url
-          id
-          description
+        ... on Issue {
+          title
           repository {
             name
-            nameWithOwner
-            owner {
-              login
-            }
           }
+          author {
+            login
+          }
+          updatedAt
+          body
         }
       }
     }
   }
 `;
 
+// I created this list so to make possible to easily switch between subjects and so adding  new menu buttons
+
 export const sectionsList: QueryType[] = [
   { name: "Repositories", type: GET_REPOSITORIES },
   { name: "Users", type: GET_USERS },
-  { name: "Codes", type: GET_CODES },
+  { name: "Topics", type: GET_TOPIC },
+  { name: "Issues", type: GET_ISSUES },
 ];

@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import React from "react";
 import { DocumentNode } from "graphql";
 import { QueryType } from "../../../services/graphql/types";
@@ -11,21 +11,22 @@ type ButtonProps = {
 
 const AppButton = ({ setSection, section }: ButtonProps) => {
   return (
-    <div>
-      <Button
-        variant="text"
-        sx={{
-          width: "100%",
-          borderBottom: `1px solid ${theme.palette.grey.grey80}`,
-          padding: 1,
-          textAlign: "start",
-          color: "white",
-        }}
-        onClick={() => setSection(section.type)}
-      >
+    <Button
+      sx={{
+        border: `0.2px solid ${theme.palette.grey.grey80}}`,
+        width: "100%",
+        display: "flex",
+        justifyContent: "start",
+        padding: 1,
+        color: "white",
+      }}
+      onClick={() => setSection(section.type)}
+    >
+      <Typography sx={{ color: theme.palette.grey.white90 }} variant="caption">
+        {" "}
         {section.name}
-      </Button>
-    </div>
+      </Typography>
+    </Button>
   );
 };
 

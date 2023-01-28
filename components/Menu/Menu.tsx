@@ -8,7 +8,7 @@ export default function Menu({ setSection }) {
     <ButtonGroup
       sx={{
         width: "20%",
-        p: 1,
+
         textAlign: "start",
         color: "white",
       }}
