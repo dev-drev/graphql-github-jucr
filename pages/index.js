@@ -6,6 +6,7 @@ import theme from "../services/theme";
 import { useState } from "react";
 import DisplayData from "../components/DisplayData/DisplayData";
 import Menu from "../components/Menu/Menu";
+import SearchIcon from "@mui/icons-material/Search";
 
 export default function Home() {
   const [section, setSection] = useState(GET_REPOSITORIES);
@@ -20,9 +21,10 @@ export default function Home() {
       </Head>
       <Box
         sx={{
-          height: "100%",
           height: "100vh",
+          p: 5,
           display: "flex",
+          justifyContent: "center",
           backgroundColor: theme.palette.primary.dark,
         }}
       >
@@ -30,19 +32,41 @@ export default function Home() {
         <Box sx={{ width: "70%" }}>
           <FormControl
             sx={{
+              p: 1,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
+            <SearchIcon
+              sx={{
+                color: theme.palette.grey.white,
+                position: "absolute",
+                transform: "translateY(-50%)",
+              }}
+            />
+
             <TextField
               sx={{
-                backgroundColor: theme.palette.primary.light,
+                backgroundColor: theme.palette.grey.grey,
+                borderRadius: "5px",
                 width: "100%",
+                borderColor: theme.palette.grey.grey80,
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    borderColor: theme.palette.grey.grey,
+                  },
+                  "&:hover fieldset": {
+                    borderColor: theme.palette.grey.grey,
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: theme.palette.grey.grey,
+                  },
+                },
+                color: theme.palette.grey.grey,
               }}
               id="outlined-basic"
-              label="Search"
               variant="outlined"
               type="text"
               value={query}

@@ -4,14 +4,13 @@ import { QueryType } from "./types";
 
 export const GET_REPOSITORIES = gql`
   query SearchInApp($query: String!, $after: String) {
-    search(query: $query, type: REPOSITORY, first: 10, after: $after) {
+    search(query: $query, type: REPOSITORY, first: 100, after: $after) {
       pageInfo {
         endCursor
         hasNextPage
       }
       nodes {
         ... on Repository {
-          forkCount
           stargazerCount
           nameWithOwner
           updatedAt
@@ -35,8 +34,8 @@ export const GET_REPOSITORIES = gql`
 `;
 
 export const GET_USERS = gql`
-  query SearchInApp {
-    search(first: 10, type: USER, query: "hello") {
+  query SearchInApp($query: String!) {
+    search(first: 10, type: USER, query: $query) {
       nodes {
         ... on User {
           login

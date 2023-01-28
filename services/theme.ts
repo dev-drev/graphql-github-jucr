@@ -12,8 +12,8 @@ const theme = createTheme({
 
     // primary colors include the following:
     primary: {
-      main: "#191919",
-      light: "#178582",
+      main: "#282D34",
+      light: "#5195eb",
       contrastText: "#080808",
     },
 
@@ -34,12 +34,6 @@ const theme = createTheme({
     },
 
     // semantic colors include the following:
-    semantic: {
-      positive: "#26f7c5",
-      cautionary: "#f2c118",
-      negative: "#f24f18",
-      informative: "#8895fa",
-    },
 
     background: {
       // this would be the background color applied to the app root

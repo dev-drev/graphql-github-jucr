@@ -12,6 +12,8 @@ export default function DisplayData({ query, section }) {
     },
   });
 
+  console.log(query);
+
   console.log(data);
 
   return (
