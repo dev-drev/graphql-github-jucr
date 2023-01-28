@@ -6,7 +6,7 @@ import { useQuery } from "@apollo/client";
 import theme from "../../services/theme";
 import { GET_REPOSITORIES, GET_USERS } from "../../services/graphql/queries";
 
-export default function Menu({ type, query }) {
+export default function Menu({ type, query, setType }) {
   query = query || "react";
   const { data } = useQuery(GET_REPOSITORIES, {
     variables: {
@@ -26,7 +26,7 @@ export default function Menu({ type, query }) {
       orientation="vertical"
       aria-label="vertical outlined button group"
     >
-      <Button key="one">Repositories</Button>
+      <Button>Repositories</Button>
       <Button>Code</Button>
       <Button>Commits</Button>
       <Button>Issues</Button>

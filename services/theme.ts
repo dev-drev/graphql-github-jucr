@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material";
-// import overrides from './overrides';
 
 const fontFamily = {
   regular: "'Noto Sans', sans-serif",
@@ -107,15 +106,6 @@ const theme = createTheme({
       lineHeight: "24px",
       letterSpacing: "0.03125rem",
     },
-
-    bodyGrey: {
-      fontFamily: fontFamily.regular,
-      color: "#999999",
-      fontWeight: "bold",
-      fontSize: "12px",
-      textTransform: "uppercase",
-    },
-
     // body2 class is used for bold body1 text // body/bold on zeplin
     body2: {
       fontFamily: fontFamily.regular,

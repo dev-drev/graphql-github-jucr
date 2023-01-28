@@ -21,4 +21,3 @@ export type User = {
   id: string;
 };
 
-export type Selection = Repository | User;

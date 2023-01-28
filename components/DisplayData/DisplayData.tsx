@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
-import Head from "next/head";
-import Image from "next/image";
+import React from "react";
+
 import { Box, ButtonGroup, Button } from "@mui/material";
 import { useQuery } from "@apollo/client";
 import theme from "../../services/theme";
@@ -8,9 +7,9 @@ import { GET_REPOSITORIES, GET_USERS } from "../../services/graphql/queries";
 import Link from "next/link";
 import Card from "../UI/Card";
 
-export default function DisplayData({ query }) {
-  query = query || "react";
-
+export default function DisplayData({ query, type }) {
+  type = GET_REPOSITORIES;
+  query = query || "hello";
   const { data } = useQuery(GET_REPOSITORIES, {
     variables: {
       query: query,
@@ -25,7 +24,7 @@ export default function DisplayData({ query }) {
       }}
     >
       {data?.search?.nodes?.map((item) => {
-        return <Card item={item} />;
+        return <Card type="GET_REPOSITORIES" item={item} />;
       })}
     </Box>
   );
