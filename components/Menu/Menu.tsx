@@ -5,6 +5,7 @@ import { Box, ButtonGroup, Button } from "@mui/material";
 import { useQuery } from "@apollo/client";
 import theme from "../../services/theme";
 import { GET_REPOSITORIES, GET_USERS } from "../../services/graphql/queries";
+import AppButton from "../UI/AppButton/AppButton";
 
 export default function Menu({ setType }) {
   return (

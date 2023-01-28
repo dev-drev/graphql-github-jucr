@@ -8,8 +8,7 @@ import Link from "next/link";
 import Card from "../UI/Card";
 
 export default function DisplayData({ query, type }) {
-  // type = GET_REPOSITORIES;
-  // query = query || "hello";
+
   const { data } = useQuery(type, {
     variables: {
       query: query,
