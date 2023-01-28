@@ -8,9 +8,9 @@ import Link from "next/link";
 import Card from "../UI/Card";
 
 export default function DisplayData({ query, type }) {
-  type = GET_REPOSITORIES;
-  query = query || "hello";
-  const { data } = useQuery(GET_REPOSITORIES, {
+  // type = GET_REPOSITORIES;
+  // query = query || "hello";
+  const { data } = useQuery(type, {
     variables: {
       query: query,
     },
@@ -19,12 +19,14 @@ export default function DisplayData({ query, type }) {
   return (
     <Box
       sx={{
-        width: "70%",
+        width: "100%",
+        height: "90%",
+        overflow: "scroll",
         border: "1px solid red",
       }}
     >
       {data?.search?.nodes?.map((item) => {
-        return <Card type="GET_REPOSITORIES" item={item} />;
+        return <Card type={type} item={item} />;
       })}
     </Box>
   );
