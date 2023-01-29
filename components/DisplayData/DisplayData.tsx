@@ -3,12 +3,7 @@ import { Box } from "@mui/material";
 import { DocumentNode, useQuery } from "@apollo/client";
 import Card from "../UI/Card";
 import { CircularProgress } from "@mui/material";
-import {
-  GET_ORGANIZATION,
-  GET_TOPIC,
-  GET_USERS,
-} from "../../services/graphql/queries";
-import useGetFullUsers from "../../services/hooks/useGetFullUsers";
+import Topic from "../UI/Card/Layouts/Topic";
 
 type DisplayDataProps = {
   query: string;
@@ -21,7 +16,9 @@ export default function DisplayData({ query, section }: DisplayDataProps) {
       query: query,
     },
   });
-  console.log(data);
+
+  const topic = data?.["topic"];
+  console.log(topic);
 
   const loadingIndicator = () => {
     return (
@@ -52,8 +49,11 @@ export default function DisplayData({ query, section }: DisplayDataProps) {
       {loading
         ? loadingIndicator()
         : data?.search?.nodes?.map((item) => {
-            return <Card section={section} key={item.id} item={item} />;
+            return (
+              <Card topic={topic} section={section} key={item.id} item={item} />
+            );
           })}
+      {topic && <Topic topic={topic} />}
     </Box>
   );
 }

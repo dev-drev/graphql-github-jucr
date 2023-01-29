@@ -34,6 +34,8 @@ export type User = {
 
 export type Topic = {
   name: string;
+  stargazerCount: number;
+  id: string;
   relatedTopics: {
     name: string;
     stargazerCount: number;

@@ -14,10 +14,11 @@ import { DocumentNode } from "graphql";
 type Props = {
   item: any;
   section: DocumentNode;
+  topic?: string;
 };
-const Card = ({ item, section, data }: Props) => {
+const Card = ({ item, section, topic }: Props) => {
   console.log("item", item);
-  console.log("data", data);
+  console.log("data", topic);
   console.log(section.type);
   return (
     <Box

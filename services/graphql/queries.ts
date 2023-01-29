@@ -43,6 +43,7 @@ export const GET_USERS = gql`
         ... on Organization {
           login
           name
+          location
         }
       }
     }
@@ -71,6 +72,7 @@ export const GET_TOPIC = gql`
       id
       __typename
       name
+      stargazerCount
       relatedTopics(first: 10) {
         name
         stargazerCount
