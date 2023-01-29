@@ -67,5 +67,9 @@ export type Discussion = {
   };
 };
   
+export enum UserOrganizationUnion {
+  "Organization",
+  "User",
+}
 
 

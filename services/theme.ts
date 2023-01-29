@@ -33,12 +33,6 @@ const theme = createTheme({
       white90: "#eeeeee",
     },
 
-    // semantic colors include the following:
-
-    background: {
-      // this would be the background color applied to the app root
-      default: "#080808",
-    },
   },
 
   typography: {

@@ -12,7 +12,7 @@ const Users = ({ item }: Props) => {
   if (!item) return null;
   return (
     <Box>
-      <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+      <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
         <TypographyLink id={item.id} name={item.name} />
         <Typography>{item.login}</Typography>
       </Box>

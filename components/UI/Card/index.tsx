@@ -1,19 +1,23 @@
 import React from "react";
 import { Box } from "@mui/material";
 import Repositories from "./Layouts/Repositories";
-import { QueryType } from "../../../services/graphql/types";
+import {
+  QueryType,
+  UserOrganizationUnion,
+} from "../../../services/graphql/types";
 import theme from "../../../services/theme";
 import Users from "./Layouts/Users";
 import Topic from "./Layouts/Topic";
 import Discussion from "./Layouts/Discussion";
+import { DocumentNode } from "graphql";
+
 type Props = {
   item: any;
-  section: QueryType;
+  section: DocumentNode;
 };
 const Card = ({ item, section }: Props) => {
   console.log("item", item);
   console.log(section.type);
-
   return (
     <Box
       sx={{
@@ -25,6 +29,7 @@ const Card = ({ item, section }: Props) => {
       }}
     >
       {item.__typename === "User" && <Users item={item} />}
+      {item.__typename === "Organization" && <Users item={item} />}
       {item.__typename === "Repository" && <Repositories item={item} />}
       {item.__typename === "Topic" && <Topic item={item} />}
       {item.__typename === "Discussion" && <Discussion item={item} />}

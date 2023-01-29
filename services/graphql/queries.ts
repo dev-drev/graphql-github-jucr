@@ -6,6 +6,7 @@ export const GET_REPOSITORIES = gql`
     search(query: $query, type: REPOSITORY, first: 100, after: $after) {
       nodes {
         ... on Repository {
+          id
           __typename
           stargazerCount
           nameWithOwner
@@ -39,6 +40,26 @@ export const GET_USERS = gql`
           email
           bio
         }
+        ... on Organization {
+          login
+          name
+        }
+      }
+    }
+  }
+`;
+
+export const GET_ORGANIZATION = gql`
+  query SearchInApp($query: String!) {
+    search(query: $query, type: USER, first: 100) {
+      nodes {
+        ... on Organization {
+          name
+          login
+          description
+          id
+          location
+        }
       }
     }
   }
@@ -47,6 +68,7 @@ export const GET_USERS = gql`
 export const GET_TOPIC = gql`
   query SearchInApp($query: String!) {
     topic(name: $query) {
+      id
       __typename
       name
       relatedTopics(first: 10) {
@@ -62,6 +84,7 @@ export const GET_ISSUES = gql`
     search(query: $query, type: ISSUE, first: 100) {
       nodes {
         ... on Issue {
+          id
           title
           repository {
             name
@@ -82,6 +105,7 @@ export const GET_DISCUSSIONS = gql`
     search(query: $query, type: DISCUSSION, first: 100) {
       nodes {
         ... on Discussion {
+          id
           title
           repository {
             name
@@ -100,6 +124,8 @@ export const GET_DISCUSSIONS = gql`
   }
 `;
 
+
+
 // Marketplace listings seems not be searchable by title, but only via ID organizationID
 
 export const GET_MARKETPLACELISTINGS = gql`
@@ -113,7 +139,7 @@ export const GET_MARKETPLACELISTINGS = gql`
   }
 `;
 
-// After reading documentation, I learnt that Searching commits and code using the search API is not possible in Github Graphql. Only searching repos, discussions, issues and users are supported (for the search API).Besides of that, Github GraphQL is a great tool allowing us to nest queries and mutations in a very complete way. Marketplace Listings are also not searchable by title, but only via ID organizationID. Topic search allows us to search for a specific one using the correct topic name. We can get its related topics. It might be possible to use the REST API to search for commits and code, and the other subjects, or also developing a way to fetch all the repos content (like commits and code) and filtering it accordingly to our search.
+//After reading documentation, I learnt that Searching commits and code using the search API is not possible in Github Graphql. Only searching repos, discussions, issues and users are supported (for the search API).Besides of that, Github GraphQL is a great tool allowing us to nest queries and mutations in a very complete way. Marketplace Listings are also not searchable by title, but only via ID organizationID. Topic search allows us to search for a specific one using the correct topic name. We can get its related topics. It might be possible to use the REST API to search for commits and code, and the other subjects, or also developing a way to fetch all the repos content (like commits and code) and filtering it accordingly to our search.
 
 // I have created a list of queries to be used only in the search section cards.
 
