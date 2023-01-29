@@ -3,7 +3,11 @@ import { Box } from "@mui/material";
 import { DocumentNode, useQuery } from "@apollo/client";
 import Card from "../UI/Card";
 import { CircularProgress } from "@mui/material";
-import { GET_ORGANIZATION, GET_USERS } from "../../services/graphql/queries";
+import {
+  GET_ORGANIZATION,
+  GET_TOPIC,
+  GET_USERS,
+} from "../../services/graphql/queries";
 import useGetFullUsers from "../../services/hooks/useGetFullUsers";
 
 type DisplayDataProps = {
@@ -18,6 +22,7 @@ export default function DisplayData({ query, section }: DisplayDataProps) {
     },
   });
   console.log(data);
+
   const loadingIndicator = () => {
     return (
       <Box

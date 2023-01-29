@@ -15,8 +15,9 @@ type Props = {
   item: any;
   section: DocumentNode;
 };
-const Card = ({ item, section }: Props) => {
+const Card = ({ item, section, data }: Props) => {
   console.log("item", item);
+  console.log("data", data);
   console.log(section.type);
   return (
     <Box

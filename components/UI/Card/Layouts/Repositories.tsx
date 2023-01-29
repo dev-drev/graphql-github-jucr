@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
 import TypographyLink from "../Typography/TypographyLink";
-import { Repository, User } from "../../../../services/graphql/types";
+import { Repository } from "../../../../services/graphql/types";
 import TypographyDate from "../Typography/TypographyDate";
 
 type Props = {

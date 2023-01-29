@@ -7,6 +7,7 @@ type Props = {
 };
 
 const Topic = ({ item }: Props) => {
+  console.log("item", item);
   return (
     <Box sx={{ color: "white" }}>
       <Typography variant="caption" sx={{ color: "white" }}>
