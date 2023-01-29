@@ -1,4 +1,5 @@
 import { DocumentNode, GraphQLObjectType } from "graphql";
+import { ReactElement } from "react";
 
 export type QueryType = {
   name: string;
@@ -19,6 +20,14 @@ export type Repository = {
     id: string;
     login: string;
     email: string;
+  };
+  repositoryTopics: {
+    nodes: {
+      map: (arg0: (topic: any) => any) => ReactElement;
+      topic: {
+        name: string;
+      };
+    };
   };
 };
 
@@ -43,9 +52,13 @@ export type Topic = {
 };
 
 export type Issue = {
+  id: string;
   title: string;
   repository: {
     name: string;
+    owner: {
+      login: string;
+    };
   };
   author: {
     login: string;

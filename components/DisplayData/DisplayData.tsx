@@ -1,9 +1,9 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { DocumentNode, useQuery } from "@apollo/client";
-import Card from "../UI/Card";
+import ItemsContainer from "../UI/ItemsContainer";
 import { CircularProgress } from "@mui/material";
-import Topic from "../UI/Card/Layouts/Topic";
+import Topic from "../UI/ItemsContainer/Layouts/Topic";
 
 type DisplayDataProps = {
   query: string;
@@ -50,7 +50,12 @@ export default function DisplayData({ query, section }: DisplayDataProps) {
         ? loadingIndicator()
         : data?.search?.nodes?.map((item) => {
             return (
-              <Card topic={topic} section={section} key={item.id} item={item} />
+              <ItemsContainer
+                topic={topic}
+                section={section}
+                key={item.id}
+                item={item}
+              />
             );
           })}
       {topic && <Topic topic={topic} />}

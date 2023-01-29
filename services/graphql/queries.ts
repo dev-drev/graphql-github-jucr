@@ -20,6 +20,13 @@ export const GET_REPOSITORIES = gql`
             id
             login
           }
+          repositoryTopics(first: 25) {
+            nodes {
+              topic {
+                name
+              }
+            }
+          }
         }
       }
     }
@@ -44,6 +51,7 @@ export const GET_USERS = gql`
           login
           name
           location
+          email
         }
       }
     }
@@ -90,6 +98,24 @@ export const GET_ISSUES = gql`
           title
           repository {
             name
+            owner {
+              login
+            }
+          }
+          author {
+            login
+          }
+          updatedAt
+          body
+        }
+        ... on PullRequest {
+          id
+          title
+          repository {
+            name
+            owner {
+              login
+            }
           }
           author {
             login

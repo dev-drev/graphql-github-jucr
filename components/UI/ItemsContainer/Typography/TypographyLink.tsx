@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 import theme from "../../../../services/theme";
 
 type Props = {
-  name: string;
+  name?: string;
   id?: string;
   owner?: { login: string };
   small?: boolean;

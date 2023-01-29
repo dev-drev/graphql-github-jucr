@@ -18,9 +18,19 @@ const Users = ({ item }: Props) => {
           {item.login}
         </Typography>
       </Box>
-      <Typography variant="caption">{item.location}</Typography>
-      <Box sx={{ display: "flex", gap: 1, py: 0.5 }}>
-        <Typography variant="caption">{item.bio}</Typography>
+      <Typography variant="caption">{item.bio}</Typography>
+
+      <Box
+        sx={{
+          display: "flex",
+          gap: 1,
+          py: 0.5,
+          color: theme.palette.grey.grey,
+        }}
+      >
+        {" "}
+        <Typography variant="caption">{item.location}</Typography>
+        <Typography variant="caption">{item.email}</Typography>
       </Box>
     </Box>
   );

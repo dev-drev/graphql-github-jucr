@@ -19,6 +19,7 @@ const SearchBar = ({ query, setQuery }: InputProps) => {
       }}
     >
       <TextField
+        inputProps={{ style: { color: theme.palette.grey.white80 } }}
         sx={{
           borderRadius: "5px",
           width: "100%",

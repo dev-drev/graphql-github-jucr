@@ -10,12 +10,8 @@ const Topic = ({ topic }: Props) => {
   console.log("item", topic);
   return (
     <Box sx={{ color: "white" }}>
-      <Typography variant="caption" sx={{ color: "white" }}>
-        {topic.name}
-      </Typography>
-      <Typography variant="caption" sx={{ color: "white" }}>
-        {topic.stargazerCount}
-      </Typography>
+      <Typography variant="caption">{topic.name}</Typography>
+      <Typography variant="caption">{topic.stargazerCount}</Typography>
     </Box>
   );
 };

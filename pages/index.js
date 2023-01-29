@@ -7,7 +7,7 @@ import DisplayData from "../components/DisplayData/DisplayData";
 import Menu from "../components/Menu/Menu";
 import SearchBar from "../components/SearchBar/SearchBar";
 
-export default function Home() {
+export default function SearchPage() {
   const [section, setSection] = useState(GET_REPOSITORIES);
   const [query, setQuery] = useState("graphql");
 

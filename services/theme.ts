@@ -14,9 +14,8 @@ const theme = createTheme({
     primary: {
       main: "#333A42",
       light: "#5195EF",
-      contrastText: "#080808",
+      contrastText: "#283548",
     },
-
     // secondary colors include the following:
     secondary: {
       main: "#BFA181",
@@ -32,7 +31,6 @@ const theme = createTheme({
       white80: "#e0e0e0",
       white90: "#eeeeee",
     },
-
   },
 
   typography: {
@@ -137,7 +135,6 @@ const theme = createTheme({
       xs: 0,
       sm: 600,
       md: 800,
-      desktop: 1024,
       lg: 1200,
       xl: 1600,
     },

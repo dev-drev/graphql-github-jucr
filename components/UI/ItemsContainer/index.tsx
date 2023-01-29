@@ -10,13 +10,14 @@ import Users from "./Layouts/Users";
 import Topic from "./Layouts/Topic";
 import Discussion from "./Layouts/Discussion";
 import { DocumentNode } from "graphql";
+import Issues from "./Layouts/Issues";
 
 type Props = {
   item: any;
   section: DocumentNode;
   topic?: string;
 };
-const Card = ({ item, section, topic }: Props) => {
+const ItemsContainer = ({ item, section, topic }: Props) => {
   console.log("item", item);
   console.log("data", topic);
   console.log(section.type);
@@ -33,11 +34,11 @@ const Card = ({ item, section, topic }: Props) => {
       {item.__typename === "User" && <Users item={item} />}
       {item.__typename === "Organization" && <Users item={item} />}
       {item.__typename === "Repository" && <Repositories item={item} />}
-      {item.__typename === "Topic" && <Topic item={item} />}
+      {item.__typename === "Issue" && <Issues item={item} />}
+      {item.__typename === "PullRequest" && <Issues item={item} />}
       {item.__typename === "Discussion" && <Discussion item={item} />}
     </Box>
   );
 };
 
-
-export default Card;
+export default ItemsContainer;
