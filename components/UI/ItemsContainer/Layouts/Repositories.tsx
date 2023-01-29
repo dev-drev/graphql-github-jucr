@@ -36,7 +36,6 @@ const Repositories = ({ item }: Props) => {
             label={topic.topic.name}
             component="a"
             href="#basic-chip"
-            clickable
             sx={{
               color: `${theme.palette.primary.light}`,
               m: 0.5,
