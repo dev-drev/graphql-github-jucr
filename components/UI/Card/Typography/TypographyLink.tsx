@@ -3,13 +3,22 @@ import React from "react";
 import { Typography } from "@mui/material";
 import theme from "../../../../services/theme";
 
-type Props = { id: string; name: string; owner: { login: string } };
+type Props = {
+  name: string;
+  id?: string;
+  owner?: { login: string };
+  small?: boolean;
+  color?: string;
+};
 
-const TypographyLink = ({ id, name, owner }: Props) => {
+const TypographyLink = ({ id, name, owner, small, color }: Props) => {
   return (
     <Link href={`/display/${id}`}>
-      <Typography variant="h6" sx={{ color: theme.palette.primary.light }}>
-        {owner ? `${owner.login} + /` : ""}
+      <Typography
+        variant={small ? "caption" : "h6"}
+        sx={{ color: color || theme.palette.primary.light }}
+      >
+        {owner ? `${owner.login}/` : undefined}
         {name}
       </Typography>
     </Link>

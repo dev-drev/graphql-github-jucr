@@ -1,14 +1,15 @@
 import Head from "next/head";
 import { useState } from "react";
-import { Box, FormControl, TextField } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { GET_REPOSITORIES } from "../services/graphql/queries";
 import theme from "../services/theme";
 import DisplayData from "../components/DisplayData/DisplayData";
 import Menu from "../components/Menu/Menu";
+import SearchBar from "../components/SearchBar/SearchBar";
 
 export default function Home() {
   const [section, setSection] = useState(GET_REPOSITORIES);
-  const [query, setQuery] = useState("grapql");
+  const [query, setQuery] = useState("graphql");
 
   return (
     <div>
@@ -29,40 +30,7 @@ export default function Home() {
       >
         <Menu section={section} setSection={setSection} />
         <Box sx={{ width: "70%" }}>
-          <FormControl
-            sx={{
-              pb: 1,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              // borderBottom: `1px solid ${theme.palette.grey.grey80}`,
-            }}
-          >
-            <TextField
-              sx={{
-                borderRadius: "5px",
-                width: "100%",
-                "& .MuiOutlinedInput-root": {
-                  "& fieldset": {
-                    borderColor: theme.palette.grey.grey80,
-                    borderWidth: "0.5px",
-                  },
-                  "&:hover fieldset": {
-                    borderColor: theme.palette.grey.grey80,
-                  },
-                  "&.Mui-focused fieldset": {
-                    borderColor: theme.palette.grey.grey80,
-                  },
-                },
-              }}
-              id="outlined-basic"
-              variant="outlined"
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-          </FormControl>
+          <SearchBar query={query} setQuery={setQuery} />
           <DisplayData query={query} section={section} />
         </Box>
       </Box>

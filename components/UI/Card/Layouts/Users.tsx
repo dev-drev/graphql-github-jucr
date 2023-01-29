@@ -12,7 +12,10 @@ const Users = ({ item }: Props) => {
   if (!item) return null;
   return (
     <Box>
-      <TypographyLink id={item.id} name={item.login} />
+      <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+        <TypographyLink id={item.id} name={item.name} />
+        <Typography>{item.login}</Typography>
+      </Box>
       <Typography variant="caption">{item.location}</Typography>
       <Box sx={{ display: "flex", gap: 1, py: 0.5 }}>
         <Typography variant="caption">{item.bio}</Typography>

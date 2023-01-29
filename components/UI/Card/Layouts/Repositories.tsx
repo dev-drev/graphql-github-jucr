@@ -1,15 +1,14 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
 import TypographyLink from "../Typography/TypographyLink";
-import { Repository } from "../../../../services/graphql/types";
-let moment = require("moment"); // require
+import { Repository, User } from "../../../../services/graphql/types";
+import TypographyDate from "../Typography/TypographyDate";
 
 type Props = {
   item: Repository;
 };
 
 const Repositories = ({ item }: Props) => {
-  let date = moment(item.updatedAt).format("MMMM Do YYYY");
   console.log("item", item);
   if (!item) return null;
   return (
@@ -23,6 +22,7 @@ const Repositories = ({ item }: Props) => {
           </Typography>
         )}
         <Typography variant="caption">{item.stargazerCount}</Typography>
+        <TypographyDate date={item.updatedAt} />
       </Box>
     </Box>
   );

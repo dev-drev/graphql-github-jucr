@@ -24,6 +24,7 @@ export type Repository = {
 
 export type User = {
   login: string;
+  name: string;
   url: string;
   location: string;
   email: string;
@@ -50,3 +51,21 @@ export type Issue = {
   updatedAt: string;
   body: string;
 };
+
+export type Discussion = {
+  title: string;
+  repository: {
+    name: string;
+  };
+  author: {
+    login: string;
+  };
+  createdAt: string;
+  body: string;
+  comments: {
+    totalCount: number;
+  };
+};
+  
+
+

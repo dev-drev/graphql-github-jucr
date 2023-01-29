@@ -5,6 +5,7 @@ import { QueryType } from "../../../services/graphql/types";
 import theme from "../../../services/theme";
 import Users from "./Layouts/Users";
 import Topic from "./Layouts/Topic";
+import Discussion from "./Layouts/Discussion";
 type Props = {
   item: any;
   section: QueryType;
@@ -12,6 +13,7 @@ type Props = {
 const Card = ({ item, section }: Props) => {
   console.log("item", item);
   console.log(section.type);
+
   return (
     <Box
       sx={{
@@ -22,10 +24,10 @@ const Card = ({ item, section }: Props) => {
         color: "white",
       }}
     >
-      {/* A different design based on the search subject */}
       {item.__typename === "User" && <Users item={item} />}
       {item.__typename === "Repository" && <Repositories item={item} />}
       {item.__typename === "Topic" && <Topic item={item} />}
+      {item.__typename === "Discussion" && <Discussion item={item} />}
     </Box>
   );
 };
