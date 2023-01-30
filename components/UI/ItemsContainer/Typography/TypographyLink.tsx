@@ -13,7 +13,7 @@ type Props = {
 
 const TypographyLink = ({ id, name, owner, small, color }: Props) => {
   return (
-    <Link href={`/display/${id}`}>
+    <Link href={`details/${id}`}>
       <Typography
         variant={small ? "caption" : "h6"}
         sx={{ color: color || theme.palette.primary.light }}
