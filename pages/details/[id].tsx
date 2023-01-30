@@ -6,7 +6,7 @@ import { Box, Typography } from "@mui/material";
 
 export const getServerSideProps = async (context) => {
   const { id } = context.query;
-
+s;
   // fetch data from an external API endpoint / database
   // const res = await fetch(`https://endpoint/${id}`);
   // const data = await res.json();
@@ -15,7 +15,7 @@ export const getServerSideProps = async (context) => {
   return {
     props: {
       id,
-      //data
+      //data,
     },
   };
 };
