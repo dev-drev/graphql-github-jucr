@@ -1,8 +1,7 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, CircularProgress } from "@mui/material";
 import { DocumentNode, useQuery } from "@apollo/client";
 import Layout from "../UI/Layouts";
-import { CircularProgress } from "@mui/material";
 import Topic from "../UI/Layouts/LayoutTypes/Topic";
 
 // This is the main component that renders the data, it accepts a query and a section in order to render the data according to the section
@@ -20,7 +19,6 @@ export default function DisplayData({ query, section }: DisplayDataProps) {
     },
   });
   const topic = data?.["topic"];
-
   // create a loading indicator
   const loadingIndicator = () => {
     return (

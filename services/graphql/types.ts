@@ -34,6 +34,7 @@ export type Repository = {
 };
 
 export type User = {
+  id: string;
   login: string;
   name: string;
   avatarUrl: string;
@@ -41,13 +42,12 @@ export type User = {
   location: string;
   email: string;
   bio: string;
-  id: string;
 };
 
 export type Topic = {
+  id: string;
   name: string;
   stargazerCount: number;
-  id: string;
   relatedTopics: {
     name: string;
     stargazerCount: number;
@@ -71,6 +71,7 @@ export type Issue = {
 };
 
 export type Discussion = {
+  id: string;
   title: string;
   repository: {
     name: string;

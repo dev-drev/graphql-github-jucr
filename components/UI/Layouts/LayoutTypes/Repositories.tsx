@@ -2,10 +2,10 @@ import React from "react";
 import { Typography, Box, Chip } from "@mui/material";
 import { Repository } from "../../../../services/graphql/types";
 import formatDate from "../../../../services/helpers/formatDate";
-import theme from "../../../../services/theme";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import FilePresentIcon from "@mui/icons-material/FilePresent";
 import Heading from "../../Molecules/Heading/Heading";
+import theme from "../../../../services/theme";
 //Since the layout might me different accordingly to the subject, this is the layout for the repositories card.
 //I usually code with an Atomic Design approach and I would nest more molecules components (like the custom Heading one).
 

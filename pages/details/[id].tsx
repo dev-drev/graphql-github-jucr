@@ -22,6 +22,7 @@ export const getServerSideProps = async (context) => {
 };
 
 const Details = ({ id }) => {
+
   return (
     <Box
       display={{
@@ -35,7 +36,7 @@ const Details = ({ id }) => {
       }}
     >
       <Typography variant="h4">
-        Details page for ID: <hr /> "{id}"{" "}
+        Details page for ID: <hr /> "{id}"
       </Typography>
     </Box>
   );

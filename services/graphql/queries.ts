@@ -5,7 +5,7 @@ import { QueryType } from "./types";
 
 export const GET_REPOSITORIES = gql`
   query SearchInApp($query: String!, $after: String) {
-    search(query: $query, type: REPOSITORY, first: 100, after: $after) {
+    search(query: $query, type: REPOSITORY, first: 75, after: $after) {
       nodes {
         ... on Repository {
           id
@@ -26,6 +26,63 @@ export const GET_REPOSITORIES = gql`
             nodes {
               topic {
                 name
+              }
+            }
+          }
+          # We can also search for commits but this would slow considerably the search process as the mount of data is huge and overpasses 1000 nodes for 100 repositories. We can do it in a separate query
+          # refs(refPrefix: "refs/heads/", first: 10) {
+          #   nodes {
+          #     name
+          #     target {
+          #       ... on Commit {
+          #         history(first: 10) {
+          #           nodes {
+          #             message
+          #             committedDate
+          #             author {
+          #               name
+          #               email
+          #               date
+          #             }
+          #           }
+          #         }
+          #       }
+          #     }
+          #   }
+          # }
+        }
+      }
+    }
+  }
+`;
+
+// separate query for repository commits
+export const GET_REPOSITORIES_WITH_COMMITS = gql`
+  query SearchInApp($query: String!, $after: String) {
+    search(query: $query, type: REPOSITORY, first: 10, after: $after) {
+      nodes {
+        ... on Repository {
+          refs(refPrefix: "refs/heads/", first: 10) {
+            nodes {
+              name
+              target {
+                ... on Commit {
+                  history(first: 10) {
+                    nodes {
+                      message
+                      committedDate
+                      author {
+                        name
+                        email
+                        date
+                      }
+                      #code changes count
+                      additions
+                      deletions
+                      changedFiles
+                    }
+                  }
+                }
               }
             }
           }

@@ -1,9 +1,9 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
 import { User } from "../../../../services/graphql/types";
-import TypographyLink from "../../Atoms/Typography/TypographyLink";
-import theme from "../../../../services/theme";
 import Heading from "../../Molecules/Heading/Heading";
+import theme from "../../../../services/theme";
+import Link from "next/link";
 
 type Props = {
   item: User;
@@ -16,7 +16,7 @@ const Users = ({ item }: Props) => {
       <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
         <Heading id={item.id} name={item.name} imageUrl={item.avatarUrl} />
         <Typography sx={{ color: theme.palette.grey.grey }}>
-          {item.login}
+          <Link href={`details/${item.id}`}>{item.login}</Link>
         </Typography>
       </Box>
       <Typography variant="caption">{item.bio}</Typography>

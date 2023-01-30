@@ -3,8 +3,9 @@ import { Box } from "@mui/system";
 import React from "react";
 import { Discussion } from "../../../../services/graphql/types";
 import formatDate from "../../../../services/helpers/formatDate";
-import theme from "../../../../services/theme";
 import TypographyLink from "../../Atoms/Typography/TypographyLink";
+import theme from "../../../../services/theme";
+import Link from "next/link";
 
 type Props = {
   item: Discussion;
@@ -27,7 +28,7 @@ const Discussion = ({ item }: Props) => {
           py: 0.5,
         }}
       >
-        {item.title}
+        <Link href={`details/${item.id}`}>{item.title}</Link>
       </Typography>
       <Typography
         variant="body1"

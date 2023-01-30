@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonGroup, List } from "@mui/material";
+import { List } from "@mui/material";
 import { sectionsList } from "../../services/graphql/queries";
 import AppListItem from "../UI/Atoms/AppListItem/AppListItem";
 
@@ -10,7 +10,7 @@ export default function Menu({ setSection }) {
       sx={{
         borderRadius: 2,
         height: "auto",
-        width: "10%",
+        width: "15%",
         textAlign: "start",
         color: "white",
       }}

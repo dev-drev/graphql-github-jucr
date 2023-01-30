@@ -21,6 +21,7 @@ const AppListItem = ({ setSection, section }: ButtonProps) => {
         "&:hover": {
           backgroundColor: theme.palette.grey.grey80,
         },
+        borderRadius: 1,
         transition: "all 0.3s ease-in-out",
         color: theme.palette.grey.white90,
         border: `0.6px solid ${theme.palette.grey.grey80}`,

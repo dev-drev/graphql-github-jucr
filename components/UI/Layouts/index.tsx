@@ -1,8 +1,8 @@
 import React from "react";
 import { Box } from "@mui/material";
-import theme from "../../../services/theme";
 import { DocumentNode } from "graphql";
 import { Repositories, Users, Discussion, Issues } from "./LayoutTypes";
+import theme from "../../../services/theme";
 
 // This is the main Layout component that is used in the DisplayData component to render the data according to the section that is passed to it.
 
