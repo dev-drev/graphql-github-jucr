@@ -14,7 +14,6 @@ type Props = {
 };
 
 const Repositories = ({ item }: Props) => {
-  console.log("item", item);
   if (!item) return null;
   return (
     <Box>

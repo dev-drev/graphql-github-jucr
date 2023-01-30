@@ -8,13 +8,12 @@ type Props = {
 };
 
 const Topic = ({ topic }: Props) => {
-  console.log("item", topic);
   return (
     <Box sx={{ color: "white" }}>
       <Typography variant="h2" sx={{ textTransform: "capitalize" }}>
         {topic.name}
       </Typography>
-      <Typography variant="caption">{topic.stargazerCount}</Typography>
+      <Typography variant="caption">Likes: {topic.stargazerCount}</Typography>
       <Box>
         {topic.relatedTopics.map((item) => (
           <Chip

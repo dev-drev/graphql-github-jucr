@@ -10,7 +10,6 @@ type Props = {
 };
 
 const Discussion = ({ item }: Props) => {
-  console.log("item", item);
   return (
     <Box sx={{ gap: 2 }}>
       <TypographyLink

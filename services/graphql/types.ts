@@ -1,5 +1,7 @@
-import { DocumentNode, GraphQLObjectType } from "graphql";
+import { DocumentNode } from "graphql";
 import { ReactElement } from "react";
+
+// This is the types of the queries that will be used in the app
 
 export type QueryType = {
   name: string;
@@ -82,10 +84,8 @@ export type Discussion = {
     totalCount: number;
   };
 };
-  
+
 export enum UserOrganizationUnion {
   "Organization",
   "User",
 }
-
-

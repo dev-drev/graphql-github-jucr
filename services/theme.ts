@@ -1,5 +1,7 @@
 import { createTheme } from "@mui/material";
 
+// This is a theme file for the app with all the colors, fonts and resuable styles
+
 const fontFamily = {
   regular: "'Noto Sans', sans-serif",
   condensed: "'Noto Sans', sans-serif",
@@ -9,19 +11,15 @@ const fontFamily = {
 const theme = createTheme({
   palette: {
     mode: "dark",
-
-    // primary colors include the following:
     primary: {
       main: "#333A42",
       light: "#5195EF",
       contrastText: "#283548",
     },
-    // secondary colors include the following:
     secondary: {
       main: "#BFA181",
       light: "#f0c9a1",
     },
-    // grey colors include the following:
     grey: {
       black: "#080808",
       grey90: "#292929",
@@ -139,18 +137,6 @@ const theme = createTheme({
       xl: 1600,
     },
   },
-
-  // Component styles overrides
-  components: {
-    // MuiCssBaseline: {
-    //   styleOverrides: {
-    //     "@font-face": [drukWide],
-    //   },
-    // },
-  },
-
-  // TODO: investicate why the overrides breaks the 'darken' mode
-  // ...overrides,
 });
 
 export default theme;

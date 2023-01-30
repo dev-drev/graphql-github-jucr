@@ -3,6 +3,9 @@ import React from "react";
 import { Typography } from "@mui/material";
 import theme from "../../../../services/theme";
 
+
+// This is a component that is used in many places in the app. It is a link that is styled like a typography component. It can be customized to fit the needs of the component that is using it by passing in props.
+
 type Props = {
   name?: string;
   id?: string;

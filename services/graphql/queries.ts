@@ -1,6 +1,8 @@
 import { gql } from "@apollo/client";
 import { QueryType } from "./types";
 
+// Queries for the search API
+
 export const GET_REPOSITORIES = gql`
   query SearchInApp($query: String!, $after: String) {
     search(query: $query, type: REPOSITORY, first: 100, after: $after) {

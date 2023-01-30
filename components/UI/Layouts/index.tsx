@@ -4,15 +4,14 @@ import theme from "../../../services/theme";
 import { DocumentNode } from "graphql";
 import { Repositories, Users, Discussion, Issues } from "./LayoutTypes";
 
+// This is the main Layout component that is used in the DisplayData component to render the data according to the section that is passed to it.
+
 type Props = {
   item: any;
   section: DocumentNode;
   topic?: string;
 };
 const Layout = ({ item, section, topic }: Props) => {
-  console.log("item", item);
-  console.log("data", topic);
-  console.log(section.type);
   return (
     <Box
       sx={{

@@ -4,6 +4,8 @@ import { DocumentNode } from "graphql";
 import { QueryType } from "../../../../services/graphql/types";
 import theme from "../../../../services/theme";
 
+// This is a reusable component that is used in the AppList component for the Menu and every other component that needs a list item. It can be customized to fit the needs of the component that is using it.
+
 type ButtonProps = {
   setSection: (section: DocumentNode) => void;
   section: QueryType;

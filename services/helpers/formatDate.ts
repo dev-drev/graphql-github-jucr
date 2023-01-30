@@ -9,7 +9,6 @@ const formatDate = (date: string, updated: boolean) => {
     let days = now.diff(date, "days");
     return days;
   }
-  console.log("formatDate", formatDate);
   return formatDate;
 };
 

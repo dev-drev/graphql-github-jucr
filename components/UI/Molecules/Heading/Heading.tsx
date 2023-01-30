@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "@mui/material";
 import TypographyLink from "../../Atoms/Typography/TypographyLink";
 
-// This is the Heading component that can be reused in different components
+// This is the Heading component that can be reused in different components and it allows us to customize it by using an icon or an image. It also allows us to pass in the id, name, and owner of the item that is being displayed.
 
 type Props = {
   id: string;
