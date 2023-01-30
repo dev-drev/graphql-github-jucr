@@ -15,6 +15,7 @@ const Topic = ({ topic }: Props) => {
       </Typography>
       <Typography variant="caption">Likes: {topic.stargazerCount}</Typography>
       <Box>
+        Related topics list
         {topic.relatedTopics.map((item) => (
           <Chip
             label={item.name}
