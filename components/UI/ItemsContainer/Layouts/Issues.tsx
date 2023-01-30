@@ -1,8 +1,9 @@
 import { Box, Typography } from "@mui/material";
+import Link from "next/link";
 import React from "react";
 import { Issue } from "../../../../services/graphql/types";
 import theme from "../../../../services/theme";
-import TypographyLink from "../Typography/TypographyLink";
+import TypographyLink from "../../Typography/TypographyLink";
 
 type Props = {
   item: Issue;
@@ -19,7 +20,7 @@ const Issues = ({ item }: Props) => {
         color={theme.palette.grey.grey}
       />
       <Typography sx={{ color: theme.palette.primary.light }}>
-        {item.title}
+        <Link href={`details/${item.id}`}>{item.title}</Link>
       </Typography>
       <Typography noWrap variant="caption">
         {item.body}

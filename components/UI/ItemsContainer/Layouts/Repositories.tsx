@@ -1,10 +1,13 @@
 import React from "react";
 import { Typography, Box, Chip } from "@mui/material";
-import TypographyLink from "../Typography/TypographyLink";
 import { Repository } from "../../../../services/graphql/types";
 import formatDate from "../../../../services/helpers/formatDate";
 import theme from "../../../../services/theme";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
+import FilePresentIcon from "@mui/icons-material/FilePresent";
+import Heading from "../../Molecules/Heading/Heading";
+//Since the layout might me different accordingly to the subject, this is the layout for the repositories card.
+//I usually code with an Atomic Design approach and I would nest more molecules components (like the custom Heading one).
 
 type Props = {
   item: Repository;
@@ -12,11 +15,19 @@ type Props = {
 
 const Repositories = ({ item }: Props) => {
   console.log("item", item);
-
   if (!item) return null;
   return (
     <Box>
-      <TypographyLink id={item.id} name={item.name} owner={item.owner} />
+      <Heading
+        id={item.id}
+        name={item.name}
+        owner={item.owner}
+        icon={
+          <FilePresentIcon
+            sx={{ color: theme.palette.grey.grey80, fontSize: 20 }}
+          />
+        }
+      />
       <Typography variant="caption">{item.description}</Typography>
       <Box sx={{ display: "flex", gap: 1, py: 0.5 }}>
         {item.primaryLanguage?.name && (

@@ -34,6 +34,7 @@ export type Repository = {
 export type User = {
   login: string;
   name: string;
+  avatarUrl: string;
   url: string;
   location: string;
   email: string;

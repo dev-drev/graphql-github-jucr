@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import React from "react";
 import { Discussion } from "../../../../services/graphql/types";
 import theme from "../../../../services/theme";
-import TypographyLink from "../Typography/TypographyLink";
+import TypographyLink from "../../Typography/TypographyLink";
 
 type Props = {
   item: Discussion;
