@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { Discussion } from "../../../../services/graphql/types";
+import formatDate from "../../../../services/helpers/formatDate";
 import theme from "../../../../services/theme";
 import TypographyLink from "../../Atoms/Typography/TypographyLink";
 
@@ -37,6 +38,16 @@ const Discussion = ({ item }: Props) => {
         }}
       >
         {item.body}
+      </Typography>
+      <Typography
+        variant="body1"
+        noWrap
+        sx={{
+          color: theme.palette.grey.grey,
+          fontSize: 14,
+        }}
+      >
+        posted {formatDate(item.createdAt, true)} days ago
       </Typography>
     </Box>
   );

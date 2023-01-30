@@ -37,8 +37,7 @@ const Repositories = ({ item }: Props) => {
         )}
         <Typography variant="caption">{item.primaryLanguage?.name}</Typography>
         <Typography variant="caption">
-          Updated on:
-          {formatDate(item.updatedAt, false)}
+          Updated on {formatDate(item.updatedAt, false)}
         </Typography>
       </Box>
       {/* Chips for related topics */}
