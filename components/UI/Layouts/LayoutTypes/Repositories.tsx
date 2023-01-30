@@ -37,7 +37,10 @@ const Repositories = ({ item }: Props) => {
           </Box>
         )}
         <Typography variant="caption">{item.primaryLanguage?.name}</Typography>
-        <Typography variant="caption">{formatDate(item.updatedAt)}</Typography>
+        <Typography variant="caption">
+          Updated on:
+          {formatDate(item.updatedAt, false)}
+        </Typography>
       </Box>
       {/* Chips for related topics */}
       <Box sx={{ gap: 10 }}>

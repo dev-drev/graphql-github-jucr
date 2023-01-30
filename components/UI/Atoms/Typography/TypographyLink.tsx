@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Typography } from "@mui/material";
-import theme from "../../../services/theme";
+import theme from "../../../../services/theme";
 
 type Props = {
   name?: string;

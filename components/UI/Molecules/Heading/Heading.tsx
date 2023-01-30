@@ -1,9 +1,9 @@
 import React from "react";
-import FilePresentIcon from "@mui/icons-material/FilePresent";
 import { Box } from "@mui/material";
-import TypographyLink from "../../Typography/TypographyLink";
-import theme from "../../../../services/theme";
-import NextImage from "next/image";
+import TypographyLink from "../../Atoms/Typography/TypographyLink";
+
+// This is the Heading component that can be reused in different components
+
 type Props = {
   id: string;
   name: string;
@@ -19,7 +19,6 @@ const Heading = (props: Props) => {
 
   return (
     <div>
-      {" "}
       <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
         {icon && icon}
         {imageUrl && (

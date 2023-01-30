@@ -163,7 +163,7 @@ export const GET_MARKETPLACELISTINGS = gql`
 export const sectionsList: QueryType[] = [
   { name: "Repositories", type: GET_REPOSITORIES },
   { name: "Users", type: GET_USERS },
-  { name: "Topics", type: GET_TOPIC },
   { name: "Issues", type: GET_ISSUES },
   { name: "Discussions", type: GET_DISCUSSIONS },
+  { name: "Topics", type: GET_TOPIC },
 ];

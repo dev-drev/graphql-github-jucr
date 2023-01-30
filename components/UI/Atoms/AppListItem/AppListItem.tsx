@@ -1,8 +1,8 @@
 import { ListItem } from "@mui/material";
 import React from "react";
 import { DocumentNode } from "graphql";
-import { QueryType } from "../../../services/graphql/types";
-import theme from "../../../services/theme";
+import { QueryType } from "../../../../services/graphql/types";
+import theme from "../../../../services/theme";
 
 type ButtonProps = {
   setSection: (section: DocumentNode) => void;

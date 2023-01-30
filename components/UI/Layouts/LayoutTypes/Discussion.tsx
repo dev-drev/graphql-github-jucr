@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import React from "react";
 import { Discussion } from "../../../../services/graphql/types";
 import theme from "../../../../services/theme";
-import TypographyLink from "../../Typography/TypographyLink";
+import TypographyLink from "../../Atoms/Typography/TypographyLink";
 
 type Props = {
   item: Discussion;
@@ -17,7 +17,7 @@ const Discussion = ({ item }: Props) => {
         color={theme.palette.grey.grey}
         small
         owner={item.author}
-        name={item.title}
+        name={item.repository.name}
       />
       <Typography
         variant="body1"

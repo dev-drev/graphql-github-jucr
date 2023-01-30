@@ -1,9 +1,11 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { DocumentNode, useQuery } from "@apollo/client";
-import ItemsContainer from "../UI/ItemsContainer";
+import Layout from "../UI/Layouts";
 import { CircularProgress } from "@mui/material";
-import Topic from "../UI/ItemsContainer/Layouts/Topic";
+import Topic from "../UI/Layouts/LayoutTypes/Topic";
+
+// This is the main component that renders the data, it accepts a query and a section in order to render the data according to the section
 
 type DisplayDataProps = {
   query: string;
@@ -11,15 +13,15 @@ type DisplayDataProps = {
 };
 
 export default function DisplayData({ query, section }: DisplayDataProps) {
+  // Get the data from the query
   const { data, loading, error } = useQuery(section, {
     variables: {
       query: query,
     },
   });
-
   const topic = data?.["topic"];
-  console.log(topic);
 
+  // create a loading indicator
   const loadingIndicator = () => {
     return (
       <Box
@@ -36,7 +38,7 @@ export default function DisplayData({ query, section }: DisplayDataProps) {
       </Box>
     );
   };
-
+  // Render the data according to the section
   return (
     <Box
       sx={{
@@ -50,7 +52,7 @@ export default function DisplayData({ query, section }: DisplayDataProps) {
         ? loadingIndicator()
         : data?.search?.nodes?.map((item) => {
             return (
-              <ItemsContainer
+              <Layout
                 topic={topic}
                 section={section}
                 key={item.id}
@@ -58,6 +60,7 @@ export default function DisplayData({ query, section }: DisplayDataProps) {
               />
             );
           })}
+      {/* Since the topic is only one we have a separate component for it  */}
       {topic && <Topic topic={topic} />}
     </Box>
   );

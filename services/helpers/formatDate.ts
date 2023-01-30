@@ -1,7 +1,14 @@
-let moment = require("moment"); // require
+// This is a helper function to format the date
 
-const formatDate = (date: string) => {
+const formatDate = (date: string, updated: boolean) => {
+  let moment = require("moment");
   let formatDate = moment(date).format("MMMM Do YYYY");
+
+  if (updated) {
+    let now = moment();
+    let days = now.diff(date, "days");
+    return days;
+  }
   console.log("formatDate", formatDate);
   return formatDate;
 };

@@ -2,8 +2,9 @@ import { Box, Typography } from "@mui/material";
 import Link from "next/link";
 import React from "react";
 import { Issue } from "../../../../services/graphql/types";
+import formatDate from "../../../../services/helpers/formatDate";
 import theme from "../../../../services/theme";
-import TypographyLink from "../../Typography/TypographyLink";
+import TypographyLink from "../../Atoms/Typography/TypographyLink";
 
 type Props = {
   item: Issue;
@@ -25,12 +26,21 @@ const Issues = ({ item }: Props) => {
       <Typography noWrap variant="caption">
         {item.body}
       </Typography>
-      <TypographyLink
-        small
-        id={item.id}
-        owner={item.author}
-        color={theme.palette.grey.grey}
-      />
+      <Box>
+        <TypographyLink
+          small
+          id={item.id}
+          owner={item.author}
+          color={theme.palette.grey.grey}
+        />
+        <Typography
+          noWrap
+          variant="caption"
+          sx={{ px: 1, color: theme.palette.grey.grey }}
+        >
+          opened {formatDate(item.updatedAt, true)} days ago
+        </Typography>
+      </Box>
     </Box>
   );
 };

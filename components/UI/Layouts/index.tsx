@@ -1,23 +1,15 @@
 import React from "react";
 import { Box } from "@mui/material";
-import Repositories from "./Layouts/Repositories";
-import {
-  QueryType,
-  UserOrganizationUnion,
-} from "../../../services/graphql/types";
 import theme from "../../../services/theme";
-import Users from "./Layouts/Users";
-import Topic from "./Layouts/Topic";
-import Discussion from "./Layouts/Discussion";
 import { DocumentNode } from "graphql";
-import Issues from "./Layouts/Issues";
+import { Repositories, Users, Discussion, Issues } from "./LayoutTypes";
 
 type Props = {
   item: any;
   section: DocumentNode;
   topic?: string;
 };
-const ItemsContainer = ({ item, section, topic }: Props) => {
+const Layout = ({ item, section, topic }: Props) => {
   console.log("item", item);
   console.log("data", topic);
   console.log(section.type);
@@ -41,4 +33,4 @@ const ItemsContainer = ({ item, section, topic }: Props) => {
   );
 };
 
-export default ItemsContainer;
+export default Layout;

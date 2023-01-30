@@ -11,18 +11,22 @@ const Topic = ({ topic }: Props) => {
   console.log("item", topic);
   return (
     <Box sx={{ color: "white" }}>
-      <Typography variant="caption">{topic.name}</Typography>
+      <Typography variant="h2" sx={{ textTransform: "capitalize" }}>
+        {topic.name}
+      </Typography>
       <Typography variant="caption">{topic.stargazerCount}</Typography>
-      {topic.relatedTopics.map((item) => (
-        <Chip
-          label={item.name}
-          sx={{
-            color: `${theme.palette.primary.light}`,
-            m: 0.5,
-            backgroundColor: `${theme.palette.primary.contrastText}`,
-          }}
-        />
-      ))}
+      <Box>
+        {topic.relatedTopics.map((item) => (
+          <Chip
+            label={item.name}
+            sx={{
+              color: `${theme.palette.primary.light}`,
+              m: 0.5,
+              backgroundColor: `${theme.palette.primary.contrastText}`,
+            }}
+          />
+        ))}
+      </Box>
     </Box>
   );
 };

@@ -1,9 +1,10 @@
 import React from "react";
 import { ButtonGroup, List } from "@mui/material";
 import { sectionsList } from "../../services/graphql/queries";
-import AppButton from "../UI/AppListItem/AppListItem";
+import AppListItem from "../UI/Atoms/AppListItem/AppListItem";
 
 export default function Menu({ setSection }) {
+  // This is the side menu
   return (
     <List
       sx={{
@@ -15,7 +16,7 @@ export default function Menu({ setSection }) {
       }}
     >
       {sectionsList.map((section, index) => (
-        <AppButton setSection={setSection} section={section} key={index} />
+        <AppListItem setSection={setSection} section={section} key={index} />
       ))}
     </List>
   );
