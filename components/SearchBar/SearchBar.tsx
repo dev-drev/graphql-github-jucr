@@ -2,6 +2,8 @@ import { FormControl, TextField } from "@mui/material";
 import React from "react";
 import theme from "../../services/theme";
 
+// This is the search bar component that is used in the AppList component. 
+
 type InputProps = {
   query: string;
   setQuery: (query: string) => void;
