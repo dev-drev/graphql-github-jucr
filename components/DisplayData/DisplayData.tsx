@@ -3,6 +3,7 @@ import { Box, CircularProgress } from "@mui/material";
 import { DocumentNode, useQuery } from "@apollo/client";
 import Layout from "../UI/Layouts";
 import Topic from "../UI/Layouts/LayoutTypes/Topic";
+import theme from "../../services/theme";
 
 // This is the main component that renders the data, it accepts a query and a section in order to render the data according to the section
 
@@ -43,9 +44,15 @@ export default function DisplayData({ query, section }: DisplayDataProps) {
         width: "100%",
         height: "100%",
         overflow: "scroll",
+        color: theme.palette.grey.white80,
       }}
     >
-      {error && <p>{error.message}</p>}
+      {error && (
+        <p>
+          {error.message}. <br /> You may need to generate a new GitHub Personal
+          Access Token
+        </p>
+      )}
       {loading
         ? loadingIndicator()
         : data?.search?.nodes?.map((item) => {
