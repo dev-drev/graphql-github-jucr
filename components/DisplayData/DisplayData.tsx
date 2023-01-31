@@ -25,7 +25,7 @@ export default function DisplayData({ query, section }: DisplayDataProps) {
     return (
       <Box
         sx={{
-          color: "white",
+          color: theme.palette.grey.white80,
           width: "100%",
           height: "70%",
           display: "flex",
