@@ -6,7 +6,7 @@ const httpLink = createHttpLink({
 });
 const authLink = setContext((_, { headers }) => {
   // make sure your token (classic one with access to all GitHub Data) starts with "ghp_"
-  const token = "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";
+  const token = "YOUR_TOKEN";
   return {
     headers: {
       ...headers,
