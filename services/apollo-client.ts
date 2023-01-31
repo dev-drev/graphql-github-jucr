@@ -5,7 +5,7 @@ const httpLink = createHttpLink({
   uri: "https://api.github.com/graphql",
 });
 const authLink = setContext((_, { headers }) => {
-  const temporaryToken = "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";
+  const temporaryToken = "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";
   return {
     headers: {
       ...headers,
