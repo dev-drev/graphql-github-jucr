@@ -5,11 +5,12 @@ const httpLink = createHttpLink({
   uri: "https://api.github.com/graphql",
 });
 const authLink = setContext((_, { headers }) => {
-  const temporaryToken = "YOUR_GITHUB_TOKEN";
+  // make sure your token (classic one with access to all GitHub Data) starts with "ghp_"
+  const token = "YOUR_GITHUB_TOKEN";
   return {
     headers: {
       ...headers,
-      authorization: temporaryToken ? `Bearer ${temporaryToken}` : "",
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
